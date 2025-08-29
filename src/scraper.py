@@ -124,9 +124,6 @@ class Scraper:
         text = text.strip()
         return text
 
-
-    
-
     def parse_features(self, text: str) -> dict:
         """
         Parse the features string from a property card, e.g.
@@ -159,21 +156,3 @@ class Scraper:
             features['bathrooms'] = int(match.group(1))
 
         return features
-
-    
-    # def parse_features(self, text):
-
-    #     features_matches = re.compile(r'(\d+\.?\d*)\s(\w+)').findall(text)
-
-    #     features_appearance = {'square_meters_area': 0, 'rooms': 0, 'bedrooms': 0, 'bathrooms': 0, 'parking' : 0}
-
-    #     features = {}
-
-    #     for feature in features_matches:
-    #         try:
-    #             feature_unit = f'{FEATURE_UNIT_DICT[feature[1]]}_{features_appearance[FEATURE_UNIT_DICT[feature[1]]]}'
-    #             features_appearance[FEATURE_UNIT_DICT[feature[1]]] += 1
-    #         except:
-    #             feature_unit = feature[1]
-    #         features[feature_unit] = feature[0]
-    #     return features
